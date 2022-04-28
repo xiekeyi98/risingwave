@@ -27,9 +27,9 @@ use risingwave_storage::cell_based_row_deserializer::CellBasedRowDeserializer;
 use risingwave_storage::storage_value::StorageValue;
 use risingwave_storage::{Keyspace, StateStore};
 
-use crate::executor::managed_state::flush_status::BtreeMapFlushStatus as FlushStatus;
-use crate::executor::managed_state::top_n::deserialize_bytes_to_pk_and_row;
-use crate::executor::managed_state::top_n::variants::TOP_N_MIN;
+use super::super::flush_status::BtreeMapFlushStatus as FlushStatus;
+use super::deserialize_bytes_to_pk_and_row;
+use super::variants::TOP_N_MIN;
 
 /// This state is used for `[offset, offset+limit)` part in the `TopNExecutor`.
 ///
@@ -348,7 +348,6 @@ mod tests {
     use risingwave_storage::{Keyspace, StateStore};
 
     use super::*;
-    use crate::executor::managed_state::top_n::top_n_bottom_n_state::ManagedTopNBottomNState;
     use crate::row_nonnull;
 
     fn create_managed_top_n_bottom_n_state<S: StateStore>(
