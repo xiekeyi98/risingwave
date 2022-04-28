@@ -53,7 +53,7 @@ risedev:
     - use: meta-node
     - use: compute-node
       user-managed: true
-    - use: frontend-legacy
+    - use: frontend
 
   # `dev-frontend` have the same settings as default except the the frontend-legacy node will be started by user.
   dev-frontend:
