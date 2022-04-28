@@ -300,7 +300,7 @@ impl Barrier {
     }
 }
 
-#[derive(Debug, EnumAsInner)]
+#[derive(Debug, EnumAsInner, PartialEq)]
 pub enum Message {
     Chunk(StreamChunk),
     Barrier(Barrier),
